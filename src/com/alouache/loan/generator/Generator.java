@@ -1,4 +1,5 @@
 package com.alouache.loan.generator;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
@@ -6,7 +7,7 @@ import java.util.ArrayList;
 
 /**
  * CompileList Generator allows to automatically generate project's compile list
- * 
+ *
  * @author Loan Alouache
  * @version 1.0, 30/11/2018
  */
@@ -36,7 +37,7 @@ public class Generator {
 
 	/**
 	 * Retrieve absolute path file list
-	 * 
+	 *
 	 * @param directory - target directory
 	 */
 	public void getFiles(String directory) {
@@ -47,10 +48,10 @@ public class Generator {
 			for (File f : listOfFiles) {
 
 				if (f.isFile() && isValidFileName(f.getName())) // if target is a java file
-					this.fileList.add(f.getAbsolutePath());
+					this.fileList.add(f.getPath());
 
 				else if (f.isDirectory())
-					getFiles(f.getAbsolutePath());
+					getFiles(f.getPath());
 
 			}
 		} catch (Exception e) {
@@ -62,11 +63,11 @@ public class Generator {
 
 	/**
 	 * Check if the file name is valid
-	 * 
+	 *
 	 * @param fileName - target file
 	 * @return true if java file
 	 */
-	public boolean isValidFileName(String fileName) {
+	private boolean isValidFileName(String fileName) {
 		return !Generator.ignoreList.contains(fileName) && fileName.split("\\.").length > 0
 				&& fileName.split("\\.")[fileName.split("\\.").length - 1].equals("java");
 	}
