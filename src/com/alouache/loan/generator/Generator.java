@@ -82,7 +82,7 @@ public class Generator {
 		for (String file : this.fileList)
 			s += file + "\n";
 
-		// writting file
+		// writing file
 		try {
 			FileWriter fw = new FileWriter("./compile.list");
 			PrintWriter pw = new PrintWriter(fw);
