@@ -36,7 +36,7 @@ public class Generator {
 	}
 
 	/**
-	 * Retrieve absolute path file list
+	 * Retrieve path file list
 	 *
 	 * @param directory - target directory
 	 */
